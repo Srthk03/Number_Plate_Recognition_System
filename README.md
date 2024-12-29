@@ -58,9 +58,13 @@ Preprocessing plays a crucial role in improving the system's robustness to vario
    - **Description:** Adjustments to brightness, contrast, and saturation are applied dynamically.
    - **Effect:** These modifications help make the model more robust to variations in lighting conditions, ensuring that the system works well under both overexposed and underexposed conditions.
 
-### 6. **Noise Reduction:**
-   - **Description:** Some noise reduction techniques, such as Gaussian blur, are used to smooth images.
-   - **Effect:** This helps to remove any irrelevant noise that might interfere with detecting the number plate, improving detection in noisy environments (e.g., images with low quality or motion blur).
+### 6. **Contour Detection:**
+   - **Description:** Contour detection is applied to identify the boundaries of the number plate region more clearly. This is done by using techniques such as edge detection (e.g., Canny edge detection) and finding contours in the image.
+   - **Effect:** By highlighting the edges of the number plate and removing irrelevant regions in the image, contour detection helps the system focus more accurately on the license plate area. This makes it more robust to variations in angle and distortion, especially in cases where the plate may be tilted or partially obscured.
+
+### 7. **Non-Maximum Suppression (NMS):**
+   - **Description:** Non-Maximum Suppression (NMS) is applied after detecting bounding boxes using YOLOv9. It is a post-processing technique that eliminates redundant or overlapping bounding boxes.
+   - **Effect:** NMS selects the most confident bounding box when multiple boxes overlap with the same object. This ensures that only the best-fitting box is retained for the number plate, which reduces false positives and improves the precision of the detection. It is especially helpful when there are multiple possible bounding boxes that cover the same plate or region of interest.
 
 By applying these preprocessing steps, the system is made more resilient to challenges like variations in lighting, number plate angles, and image quality. These techniques ensure that the model performs robustly in real-world conditions, where images may not always be clear or uniform.
 
@@ -97,3 +101,9 @@ To set up the project, follow the steps below:
    ```bash
    git clone https://github.com/yourusername/number-plate-recognition.git
    cd number-plate-recognition
+
+
+##Result Example
+<img width="1178" alt="Screenshot 2024-12-29 at 6 52 37 PM" src="https://github.com/user-attachments/assets/319ab890-d412-4d6c-8e51-ab71b02e7099" />
+
+In this, we can clearly see that the number plate is extracted ysing YOLO, and the image is pre processed through a pipeline, and the text is extracted using ocr.
