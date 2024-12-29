@@ -9,10 +9,9 @@ This repository contains a **Number Plate Recognition (NPR)** system that detect
 - [Preprocessing](#preprocessing)
 - [Dataset](#dataset)
 - [Evaluation Metrics](#evaluation-metrics)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation](#Installation)
 - [Results](#results)
-- [License](#license)
+
 
 ## Overview
 
@@ -103,7 +102,7 @@ To set up the project, follow the steps below:
    cd number-plate-recognition
 
 
-##Result Example
+## Results
 <img width="1178" alt="Screenshot 2024-12-29 at 6 52 37 PM" src="https://github.com/user-attachments/assets/319ab890-d412-4d6c-8e51-ab71b02e7099" />
 
 In this, we can clearly see that the number plate is extracted ysing YOLO, and the image is pre processed through a pipeline, and the text is extracted using ocr.
